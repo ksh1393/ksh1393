@@ -36,23 +36,17 @@
         <label for="pwd">Password:</label>
         <input type="password" class="form-control" id="pwd">
       </div>
-		<img class="imglogo" src="./img/logo.png"><br/>
+		<img class="imglogo" src="./resources/images/logo.png"><br/>
 		좋댓구알</h1>
 	</div>
 	<ul class="list-unstyled components">
-		<p>
-			Let Study
-		</p>
-
-    
-
-
+		<p><a href = "#">Let Study</a></p>
 		<li class="active">
 		<a href="#Python" data-toggle="collapse" aria-expanded="false">Python</a>
 		<ul class="collapse list-unstyled" id="Python">
-			<li><a href="#">연산자</a></li>
-			<li><a href="#">조건문</a></li>
-			<li><a href="#">반복문</a></li>
+			<li><a href="Python_1.do">연산자</a></li>
+			<li><a href="Python_2.do">조건문</a></li>
+			<li><a href="Python_3.do">반복문</a></li>
 		</ul>
 		</li>
 		<li>
@@ -83,6 +77,7 @@
 			<li><a href="#">Rnn</a></li>
 			<li><a href="#">Cnn</a></li>
 		</ul>
+		
 	</ul>
 	<div class="sidebar-footer">
 		<p class="social-icons">
@@ -126,7 +121,9 @@
         <img class="card-img-top img-fluid" src="https://i.ytimg.com/vi/iFNpUl9cfKg/sddefault.jpg" alt="Card image cap">
         <div class="card-block">
           <h2 class="card-title"><a href = "https://youtu.be/iFNpUl9cfKg&t=158s">Part.09 반복문(for문 기초)</a></h2>
-          <p class="card-text">요약</p>
+          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, purus sit amet rhoncus vestibulum, sem ipsum accumsan nulla, et sodales erat elit nec dolor. Nam ut interdum augue. Phasellus tempor tortor sit amet dictum vulputate. Curabitur vel arcu varius, aliquam urna at, volutpat dui. Mauris vel vestibulum nunc. Vivamus ex massa, vestibulum et ipsum ut, egestas sollicitudin nunc. Nullam imperdiet, lectus in varius lacinia, erat nulla mattis orci, volutpat aliquet elit elit eu enim. Maecenas venenatis venenatis lectus eget accumsan.
+
+Donec id gravida mi. Duis venenatis odio quam, nec ultrices ante lobortis sed. Donec vulputate lorem eros, ut dapibus lacus sagittis vitae. Phasellus consequat mi pharetra turpis fermentum, vitae dapibus velit dignissim. Donec non purus justo. Etiam id gravida dolor. Maecenas venenatis tempus orci, sed iaculis quam aliquam ac. Cras commodo quam non felis ultrices pharetra a at nunc. Cras posuere lectus non aliquet dignissim. Fusce libero magna, vulputate ornare enim id, tempor pulvinar nibh. Morbi vel sollicitudin enim, non lacinia libero. Donec et elit sem.</p>
          
         </div>
       </div>
@@ -172,7 +169,7 @@
           <p><img src = "https://cdn.icon-icons.com/icons2/2699/PNG/512/apple_logo_icon_168588.png"></p>
           <footer>
             <small>
-              Someone famous in <cite title="Source Title"R. D. Hitchcock</cite>
+              <cite title="Source Title">R. D. Hitchcock</cite>
             </small>
           </footer>
         </blockquote>

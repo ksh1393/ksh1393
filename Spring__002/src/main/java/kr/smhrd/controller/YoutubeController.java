@@ -14,30 +14,22 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class YoutubeController {
 
-	@RequestMapping("/index.do")
-	public String index(Model model) {
-		return "index";
+	@RequestMapping("/Python_1.do")
+	public String Python_1(Model model) {
+		return "./Python/Python_1";
 	}
 	
-	
-	
-	@RequestMapping("/First.do")
-	public String First(Model model) {
-		
-		return "First";
+	@RequestMapping("/Python_2.do")
+	public String Python_2(Model model) {
+		return "./Python/Python_2";
 	}
 	
-	@RequestMapping("/index_1")
-	public String index_1(Model model) {
-		
-		return "index_1";
-	}
-	@RequestMapping("/index_2")
-	public String index_2(Model model) {
-		
-		return "index_2";
+	@RequestMapping("/Python_3.do")
+	public String Python_3(Model model) {
+		return "./Python/Python_3";
 	}
 	
+
 	
 	
 

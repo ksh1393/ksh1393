@@ -71,6 +71,7 @@ insert into lectures values("uecZdRyiFNA","Python","반복문",
 								"x","https://youtu.be/uecZdRyiFNA"
 							
 							)
-
-        
-select * from lectures
+select lec_url from lectures 
+select lec_thumb from lectures        
+select lec_id from lectures 
+select * from lectures 
