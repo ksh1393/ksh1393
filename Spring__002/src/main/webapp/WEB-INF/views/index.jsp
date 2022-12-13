@@ -18,6 +18,135 @@
 <link rel="stylesheet" href="./resources/css/perfect-scrollbar.min.css">
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&amp;subset=devanagari,latin-ext" rel="stylesheet">
 <link rel="stylesheet" href="./resources/css/style.css">
+<style>
+:root {
+  --surface-color: #fff;
+  --curve: 40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background-color: #fef8f8;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 5vw;
+  padding: 0;
+  list-style-type: none;
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%;  
+  border-radius: calc(var(--curve) * 1px);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card__image {      
+  width: 100%;
+  height: auto;
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;      
+  border-radius: calc(var(--curve) * 1px);    
+  background-color: var(--surface-color);      
+  transform: translateY(100%);
+  transition: .2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 2em;
+  border-radius: calc(var(--curve) * 1px) 0 0 0;    
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: .2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;      
+  z-index: 1;
+}
+
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}       
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__thumb {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;      
+  border-radius: 50%;      
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 .3em;
+  color: #6A515E;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";  
+  font-size: .8em; 
+  color: #D7BDCA;  
+}
+
+.card__status {
+  font-size: .8em;
+  color: #D7BDCA;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #D7BDCA;
+  font-family: "MockFlowFont";   
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}    
+</style>
+
+
+
+
+
+
+
+
 </head>
 <body>
 
@@ -42,41 +171,14 @@
 	<ul class="list-unstyled components">
 		<p><a href = "#">Let Study</a></p>
 		<li class="active">
-		<a href="#Python" data-toggle="collapse" aria-expanded="false">Python</a>
-		<ul class="collapse list-unstyled" id="Python">
-			<li><a href="Python_1.do">연산자</a></li>
-			<li><a href="Python_2.do">조건문</a></li>
-			<li><a href="Python_3.do">반복문</a></li>
-		</ul>
+			<a href="Python_1.do">Python</a>
 		</li>
 		<li>
 
-		<a href="#Java" data-toggle="collapse" aria-expanded="false">Java</a>
-		<ul class="collapse list-unstyled" id="Java">
-			<li><a href="#">연산자</a></li>
-			<li><a href="#">조건문</a></li>
-			<li><a href="#">반복문</a></li>
-		</ul>
-
-		<a href="#JS" data-toggle="collapse" aria-expanded="false">JS</a>
-		<ul class="collapse list-unstyled" id="JS">
-			<li><a href="#">연산자</a></li>
-			<li><a href="#">조건문</a></li>
-			<li><a href="#">반복문</a></li>
-		</ul>
-
-		<a href="#ai_1" data-toggle="collapse" aria-expanded="false">머신러닝</a>
-		<ul class="collapse list-unstyled" id="ai_1">
-			<li><a href="#">분류</a></li>
-			<li><a href="#">로지스틱 회귀</a></li>
-			<li><a href="#">텍스트 마이닝</a></li>
-		</ul>
-		<a href="#ai_2" data-toggle="collapse" aria-expanded="false">딥러닝</a>
-		<ul class="collapse list-unstyled" id="ai_2">
-			<li><a href="#">TensorFlow</a></li>
-			<li><a href="#">Rnn</a></li>
-			<li><a href="#">Cnn</a></li>
-		</ul>
+		<a href="Java_1.do">Java</a>
+		<a href="JS_1.do">JS</a>
+		<a href="ai_1.do">머신러닝</a>
+		<a href="ai_2.do">딥러닝</a>
 		
 	</ul>
 	<div class="sidebar-footer">
@@ -117,109 +219,156 @@
 	<!-- BEGIN Page Content -->
 	<div id="content">
     <div class="card-columns">
-      <div class="card">
-        <img class="card-img-top img-fluid" src="https://i.ytimg.com/vi/iFNpUl9cfKg/sddefault.jpg" alt="Card image cap">
-        <div class="card-block">
-          <h2 class="card-title"><a href = "https://youtu.be/iFNpUl9cfKg&t=158s">Part.09 반복문(for문 기초)</a></h2>
-          <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla aliquam, purus sit amet rhoncus vestibulum, sem ipsum accumsan nulla, et sodales erat elit nec dolor. Nam ut interdum augue. Phasellus tempor tortor sit amet dictum vulputate. Curabitur vel arcu varius, aliquam urna at, volutpat dui. Mauris vel vestibulum nunc. Vivamus ex massa, vestibulum et ipsum ut, egestas sollicitudin nunc. Nullam imperdiet, lectus in varius lacinia, erat nulla mattis orci, volutpat aliquet elit elit eu enim. Maecenas venenatis venenatis lectus eget accumsan.
-
-Donec id gravida mi. Duis venenatis odio quam, nec ultrices ante lobortis sed. Donec vulputate lorem eros, ut dapibus lacus sagittis vitae. Phasellus consequat mi pharetra turpis fermentum, vitae dapibus velit dignissim. Donec non purus justo. Etiam id gravida dolor. Maecenas venenatis tempus orci, sed iaculis quam aliquam ac. Cras commodo quam non felis ultrices pharetra a at nunc. Cras posuere lectus non aliquet dignissim. Fusce libero magna, vulputate ornare enim id, tempor pulvinar nibh. Morbi vel sollicitudin enim, non lacinia libero. Donec et elit sem.</p>
-         
-        </div>
-      </div>
-      <div class="card p-3">
-        <blockquote class="card-block card-blockquote">
-        <img class="card-img-top img-fluid" src="https://i.ytimg.com/vi/iFNpUl9cfKg/sddefault.jpg" alt="Card image cap">
-        <h2 class="card-title"><a href = "https://youtu.be/iFNpUl9cfKg&t=158s">Part.09 반복문(for문 기초)</a></h2>
-
-          <p>요약</p>
-          <footer>
-            <small class="text-muted">
-              Someone famous in <cite title="Source Title">Source Title</cite>
-            </small>
-          </footer>
-        </blockquote>
-      </div>
-
-      <div class="card p-3">
-        <blockquote class="card-block card-blockquote">
-        <img class="card-img-top img-fluid" src="https://i.ytimg.com/vi/iFNpUl9cfKg/sddefault.jpg" alt="Card image cap">
-        <h2 class="card-title"><a href = "https://youtu.be/iFNpUl9cfKg&t=158s">Part.09 반복문(for문 기초)</a></h2>
-
-          <p>요약 </p>
-          <footer>
-            <small class="text-muted">
-              Someone famous in <cite title="Source Title">Source Title</cite>
-            </small>
-          </footer>
-        </blockquote>
-      </div>
-
-      <div class="card">
-        <img class="card-img-top img-fluid" src="https://i.ytimg.com/vi/1t9nKrsdkdw/sddefault.jpg" alt="Card image cap">
-        <div class="card-block">
-          <h2 class="card-title"><a href = "https://youtu.be/1t9nKrsdkdw">코딩 분야 소개와 가장 먼저 공부해야 할 것과 공부 순서</a></h2>
-          <p class="card-text">요약</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-      
-      <div class="card card-inverse card-primary p-3 text-center">
-        <blockquote class="card-blockquote">
-          <p><img src = "https://cdn.icon-icons.com/icons2/2699/PNG/512/apple_logo_icon_168588.png"></p>
-          <footer>
-            <small>
-              <cite title="Source Title">R. D. Hitchcock</cite>
-            </small>
-          </footer>
-        </blockquote>
-      </div>
-      <div class="card">
-        <img class="card-img-top img-fluid" src="https://i.ytimg.com/vi/SGGebq48h3Y/sddefault.jpg" alt="Card image cap">
-
-        <div class="card-block">
-          <h2 class="card-title"><a href = "https://youtu.be/SGGebq48h3Y">백엔드 서버 클릭 몇번으로 무료 배포하는 방법</a>
-          </h2>
-         
-          <p class="card-text">요약</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-
-      <div class="card">
-        <img class="card-img-top img-fluid" src="https://i.ytimg.com/vi/SGGebq48h3Y/sddefault.jpg" alt="Card image cap">
-
-        <div class="card-block">
-          <h2 class="card-title"><a href = "https://youtu.be/SGGebq48h3Y">백엔드 서버 클릭 몇번으로 무료 배포하는 방법</a>
-          </h2>
-          
-            <p class="card-text">요약</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-
-      <div class="card">
-      </div>
-      <div class="card p-3 text-right">
-        <blockquote class="card-blockquote">
-          <img class="card-img img-fluid" src="https://i.ytimg.com/vi/j8Nj7NYqYB4/sddefault.jpg" alt="Card image">
-
-          <h2 class="card-title"><a href = "https://youtu.be/SGGebq48h3Y">인공지능 고구마 판별</a></h2>
-          <p>요약</p>
-          <footer>
-            <small class="text-muted">
-              Someone famous in <cite title="Source Title">Source Title</cite>
-            </small>
-          </footer>
-        </blockquote>
-      </div>
-      <div class="card">
-        <div class="card-block">
-          <h2 class="card-title">Let Study</h2>
-          <p class="card-text"> </p>
-          <p class="card-text"><small class="text-muted">좋댓구알</small></p>
-        </div>
-      </div>
+		<ul class="cards">
+		  <li>
+		    <a href="" class="card">
+		      <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+		      <div class="card__overlay">
+		        <div class="card__header">
+		          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+		          <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+		          <div class="card__header-text">
+		            <h3 class="card__title">Jessica Parker</h3>            
+		            <span class="card__status">1 hour ago</span>
+		          </div>
+		        </div>
+		        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+		      </div>
+		    </a>      
+		  </li>
+		  <li>
+		    <a href="" class="card">
+		      <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
+		      <div class="card__overlay">        
+		        <div class="card__header">
+		          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+		          <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
+		          <div class="card__header-text">
+		            <h3 class="card__title">kim Cattrall</h3>
+		            <span class="card__status">3 hours ago</span>
+		          </div>
+		        </div>
+		        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+		      </div>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="" class="card">
+		      <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+		      <div class="card__overlay">
+		        <div class="card__header">
+		          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+		          <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+		          <div class="card__header-text">
+		            <h3 class="card__title">Jessica Parker</h3>
+		            <span class="card__tagline">Lorem ipsum dolor sit amet consectetur</span>            
+		            <span class="card__status">1 hour ago</span>
+		          </div>
+		        </div>
+		        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+		      </div>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="" class="card">
+		      <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
+		      <div class="card__overlay">
+		        <div class="card__header">
+		          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+		          <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
+		          <div class="card__header-text">
+		            <h3 class="card__title">kim Cattrall</h3>
+		            <span class="card__status">3 hours ago</span>
+		          </div>          
+		        </div>
+		        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+		      </div>
+		    </a>
+		  </li>    
+		</ul>
+		<ul class="cards">
+		  <li>
+		    <a href="" class="card">
+		      <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+		      <div class="card__overlay">
+		        <div class="card__header">
+		          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+		          <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+		          <div class="card__header-text">
+		            <h3 class="card__title">Jessica Parker</h3>            
+		            <span class="card__status">1 hour ago</span>
+		          </div>
+		        </div>
+		        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+		      </div>
+		    </a>      
+		  </li>
+		  <li>
+		    <a href="" class="card">
+		      <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
+		      <div class="card__overlay">        
+		        <div class="card__header">
+		          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+		          <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
+		          <div class="card__header-text">
+		            <h3 class="card__title">kim Cattrall</h3>
+		            <span class="card__status">3 hours ago</span>
+		          </div>
+		        </div>
+		        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+		      </div>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="" class="card">
+		      <img src="https://i.imgur.com/oYiTqum.jpg" class="card__image" alt="" />
+		      <div class="card__overlay">
+		        <div class="card__header">
+		          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+		          <img class="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
+		          <div class="card__header-text">
+		            <h3 class="card__title">Jessica Parker</h3>
+		            <span class="card__tagline">Lorem ipsum dolor sit amet consectetur</span>            
+		            <span class="card__status">1 hour ago</span>
+		          </div>
+		        </div>
+		        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+		      </div>
+		    </a>
+		  </li>
+		  <li>
+		    <a href="" class="card">
+		      <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
+		      <div class="card__overlay">
+		        <div class="card__header">
+		          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+		          <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
+		          <div class="card__header-text">
+		            <h3 class="card__title">kim Cattrall</h3>
+		            <span class="card__status">3 hours ago</span>
+		          </div>          
+		        </div>
+		        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+		      </div>
+		    </a>
+		  </li> 
+		  <li>
+		    <a href="" class="card">
+		      <img src="https://i.imgur.com/2DhmtJ4.jpg" class="card__image" alt="" />
+		      <div class="card__overlay">
+		        <div class="card__header">
+		          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+		          <img class="card__thumb" src="https://i.imgur.com/sjLMNDM.png" alt="" />
+		          <div class="card__header-text">
+		            <h3 class="card__title">kim Cattrall</h3>
+		            <span class="card__status">3 hours ago</span>
+		          </div>          
+		        </div>
+		        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+		      </div>
+		    </a>
+		  </li>     
+		</ul>
     </div>
 	</div>
   <!-- END Page Content -->
